@@ -1,50 +1,69 @@
-<h1 class = 'center'>Stock List</h1>
-
-
 <div class="container">
-<div class= "panel panel-default">
-     <div class="panel-body">
-        <table class="table center">
-            <thead>
-            <tr>
-                <th class="col-md-2 center">Barcode</th>
-                <th class="col-md-3 center">Name</th>
-                <th class="col-md-4 center">Description</th>
-                <th class="col-md-1 center">Qty</th>
-                <th class="col-md-1 center">Price</th>
-                <th class='center col-md-1'>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% @stocks.each do |stock| %>
-            <tr>
-                <td>
-                    <%= stock.barcode %>
-                </td>
-                                    <td>
-                    <%= stock.name %>
-                </td>
-                                    <td>
-                    <%= stock.description %>
-                </td>
-                                    <td>
-                    <%= stock.quantity %>
-                </td>
-                                    <td>
-                    <%= stock.price %>
-                </td>
-                <td>
-                    <%= render 'dropdownbutton', stock: stock %>
-                    
-                </td>
-            </tr>
-            <% end %>
-            </tbody>
-            </table>
+    <h1 class = 'center'>Stock List</h1>
+
+    <div class="row">
+        <div class='col-md-2 col-md-offset-10'>
+            <%= link_to 'New stock', new_stock_path, class: "btn btn-primary btn-lg" %>
         </div>
-   
     </div>
+        
+    <hr>
+    
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class= "panel panel-default">
+                 <div class="panel-body">
+                    <table class="table center">
+                        <thead>
+                            <tr>
+                                <th class="col-md-2 center">Barcode</th>
+                                <th class="col-md-3 center">Name</th>
+                                <th class="col-md-4 center">Description</th>
+                                <th class="col-md-1 center">Qty</th>
+                                <th class="col-md-1 center">Price</th>
+                                <th class='center col-md-1'>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @stocks.each do |stock| %>
+                                <tr>
+                                    <td>
+                                        <%= stock.barcode %>
+                                    </td>
+                                    <td>
+                                        <%= stock.name %>
+                                    </td>
+                                    <td>
+                                        <%= stock.description %>
+                                    </td>
+                                    <td>
+                                        <%= stock.quantity %>
+                                    </td>
+                                    <td>
+                                        <%= stock.price %>
+                                    </td>
+                                    <td>
+                                        <%= render 'dropdownbutton', stock: stock %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+           </div>
+        </div>
+    </div>
+    
+    <hr>
+
+    <div class="row">
+        <div class='col-md-2 col-md-offset-10'>
+            <%= link_to 'New stock', new_stock_path, class: "btn btn-primary btn-lg" %>
+        </div>
+    </div>
+
 </div>
 
 
-<%= link_to 'New stock', new_stock_path %>
+
+

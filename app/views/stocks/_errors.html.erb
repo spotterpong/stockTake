@@ -1,8 +1,20 @@
 <% if obj.errors.any? %>
-    <h3>The following errors occured:</h3>
-    <ol>
-        <%= obj.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-    </ol>
+<div class="row">
+<div class="col-xs-8 col-xs-offset-2">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+        <div class="panel-title">
+            <h4>The following <%= pluralize(obj.errors.count, "error") %> occured:</h4>
+        <div class="panel-body">
+            <ul>
+                <% obj.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>    
 <% end %>

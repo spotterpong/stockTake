@@ -11,7 +11,7 @@ class StocksController < ApplicationController
    def create
       @stock = Stock.new(stock_params)
       if @stock.save 
-         flash[:notice] = 'Stock was successfully added'
+         flash[:success] = 'Stock was successfully added'
          redirect_to stocks_path
       else
          render 'new'
@@ -30,7 +30,7 @@ class StocksController < ApplicationController
    def update
       @stock = Stock.find(params[:id])      
       if @stock.update(stock_params)
-         flash[:notice] = 'Stock successfully updated'
+         flash[:success] = 'Stock successfully updated'
          redirect_to stocks_path
       else
          render 'edit'
@@ -40,7 +40,7 @@ class StocksController < ApplicationController
    def destroy
       @stock = Stock.find(params[:id]) 
       @stock.destroy
-      flash[:notice] = 'Stock successfully removed'
+      flash[:danger] = 'Stock successfully removed'
       redirect_to stocks_path
    end
    
