@@ -1,0 +1,11 @@
+<div class="dropdown center">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    &#2506;
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><%= link_to 'Edit', edit_stock_path(stock) %></li> 
+    <li role="separator" class="divider"></li>
+    <li><%= link_to 'Delete', stock_path(stock), method: :delete, data: {confirm: 'Are you sure?'} %></li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+<% if obj.errors.any? %>
+    <h3>The following errors occured:</h3>
+    <ol>
+        <%= obj.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ol>
+<% end %>
