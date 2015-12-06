@@ -17,9 +17,11 @@ class UsersController < ApplicationController
    end
    
    def edit
+       
    end
    
    def update
+       @user = User.find(params[:id])
    end
    
    def destroy
