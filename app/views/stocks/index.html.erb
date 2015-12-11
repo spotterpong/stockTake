@@ -42,7 +42,7 @@
                                     <td>
                                         <%= stock.price %>
                                     </td>
-                                    <% if logged_in? && current_user == stock.user %>
+                                    <% if logged_in? && (current_user?(stock.user) || current_user.admin?) %>
                                     <td>
                                         <%= render 'dropdownbutton', stock: stock %>
                                     </td>

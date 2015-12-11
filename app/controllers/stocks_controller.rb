@@ -24,15 +24,15 @@ class StocksController < ApplicationController
    
    
    def show
-      @stock = Stock.find(params[:id])
+
    end
    
    def edit
-      @stock = Stock.find(params[:id])
+
    end
    
    def update
-      @stock = Stock.find(params[:id])  
+
       if @stock.update(stock_params)
          flash[:success] = 'Stock successfully updated'
          redirect_to stocks_path
@@ -42,7 +42,7 @@ class StocksController < ApplicationController
    end
    
    def destroy
-      @stock = Stock.find(params[:id]) 
+ 
       @stock.destroy
       flash[:danger] = 'Stock successfully removed'
       redirect_to stocks_path
@@ -58,10 +58,9 @@ class StocksController < ApplicationController
     end
    
    def require_same_user
-      if current_user != @stock.user
+     return if logged_in? && (current_user?(@stocks.user) || current_user.admin?)
          flash[:danger] = "You can only edit or delete your own stocks"
          redirect_to root_path
       end
-   end
    
 end

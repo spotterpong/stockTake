@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base 
-    has_many :stocks
+    has_many :stocks, dependent: :destroy
     before_save {self.email = email.downcase } 
     
     validates :username, presence: true, 
