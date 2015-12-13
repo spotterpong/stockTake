@@ -5,6 +5,7 @@ class StocksController < ApplicationController
    
    def index
       @stocks = current_user.stocks.paginate(page: params[:page], per_page: 20)
+      @stock = Stock.new
    end
    
    def new
@@ -18,7 +19,7 @@ class StocksController < ApplicationController
          flash[:success] = 'Stock was successfully added'
          redirect_to stocks_path
       else
-         render 'new'
+         render 'index'
       end
    end
    
@@ -58,7 +59,7 @@ class StocksController < ApplicationController
     end
    
    def require_same_user
-     return if logged_in? && (current_user?(@stocks.user) || current_user.admin?)
+     return if logged_in? && (current_user?(@stock.user) || current_user.admin?)
          flash[:danger] = "You can only edit or delete your own stocks"
          redirect_to root_path
       end
