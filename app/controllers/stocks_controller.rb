@@ -19,6 +19,7 @@ class StocksController < ApplicationController
          flash[:success] = 'Stock was successfully added'
          redirect_to stocks_path
       else
+         @stocks = current_user.stocks.paginate(page: params[:page], per_page: 20)
          render 'index'
       end
    end
