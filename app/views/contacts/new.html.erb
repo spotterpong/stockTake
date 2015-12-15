@@ -1,0 +1,22 @@
+<div class='containner'>
+    <div class='row'>
+        <div class='col-xs-12'>
+            <%= form_for(@contact, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+                <div class='form-group'>
+                    <div class="control-label col-sm-2">
+                    <%= f.label :name %></br>
+                    </div>
+                    <div class='col-sm-4'>
+                    <%= f.text_field :name, class: "form-control", placeholder: "Enter contact name" %>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <div class="col-sm-offset-2 col-sm-10">
+                    <%= f.submit :'Add contact',  class: "btn btn-primary btn-lg" %>
+                    </div>
+                </div>
+                
+            <% end %>
+        </div>
+    </div>
+</div>

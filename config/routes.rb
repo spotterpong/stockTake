@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     resources :stocks
-    
+    resources :contacts
     root 'homepages#index'
     
     get "signup", to: "users#new"
