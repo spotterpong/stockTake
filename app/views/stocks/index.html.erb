@@ -3,8 +3,8 @@
     <%= render 'errors', obj: @stock %>
 
     <div class="row">
-        <div class='col-md-2 col-md-offset-10'>
-            <!--<%= link_to 'New stock', new_stock_path, class: "btn btn-primary btn-lg" %>-->
+        <%= render 'lookup' %>
+        <div class='col-md-2 col-md-offset-2'>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">New Stock</button>
             
             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -46,6 +46,7 @@
                         </thead>
                         <tbody>
                             <% @stocks.each do |stock| %>
+                            <div id='stock-lookup-results' %>
                                 <tr>
                                     <td>
                                         <%= stock.barcode %>
@@ -69,6 +70,7 @@
                                     <% end %>
                                 </tr>
                             <% end %>
+                            </div>
                         </tbody>
                     </table>
                     <div align='center'>

@@ -4,8 +4,13 @@ class StocksController < ApplicationController
    before_action :require_same_user, only: [:show, :edit, :update, :destory]
    
    def index
-      @stocks = current_user.stocks.paginate(page: params[:page], per_page: 20)
       @stock = Stock.new
+      if params[:search]
+         @stocks = current_user.stocks.search(params[:search]).paginate(page: params[:page], per_page: 20)
+      else
+         @stocks = current_user.stocks.paginate(page: params[:page], per_page: 20)
+      end
+      
    end
    
    def new
