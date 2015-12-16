@@ -7,10 +7,8 @@ class Stock < ActiveRecord::Base
 
     def self.search(search)
         if search
-            where("name LIKE ?", "%#{search}%") 
-            where("description LIKE ?", "%#{search}%")
-         else
-             scoped
+            where("name LIKE :search OR description LIKE :search",search: "%#{search}%") 
+            #where("description LIKE ?", "%#{search}%")
          end
          
     end

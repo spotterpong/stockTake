@@ -5,7 +5,11 @@ class ContactsController < ApplicationController
     
     def index
         @contact = Contact.new
-        @contacts = current_user.contacts.paginate(page: params[:page], per_page: 20)
+        if params[:search]
+            @contacts = current_user.contacts.search(params[:search]).paginate(page: params[:page], per_page: 20)
+        else
+            @contacts = current_user.contacts.paginate(page: params[:page], per_page: 20)
+        end
     end
     
     def show

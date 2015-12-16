@@ -1,5 +1,35 @@
-<h1>Contacts template</h1>
+<div class='center'><h1>Client List</h1></div>
+<div class='containner'>
+<div class='row'>
+    <div id='contact-lookup'>
+        <%= form_tag contacts_path, remote: false, method: :get, id: 'contact-lookup-form' do %>
+            <div class="form-group no-padding text-center">
+                <div class="col-md-2">
+                    <%= text_field_tag :search, params[:search], placeholder: "Client Name", autofocus: true,
+                                                            class: "form-control search-box input-md" %>
+                </div>
+                <div class="col-md-2">
+                    <%= button_tag(type: :submit, class: "btn btn-md btn-success") do %>
+                        <i class="fa fa-search"></i> Lookup a contact
+                    <% end %>
+                </div>
+            </div>     
+        <% end %>
+    </div>
+        
+</div>
+    
 
-<% @contacts.each do |c| %>
-    <p><%= c.name %></p>
-<% end %> 
+<hr>
+
+    <div class='well'>
+        <div class='row'>
+        <% @contacts.each_with_index do |contact, index| %>
+                <div class='col-xs-12 center'>
+                        <%= link_to contact.name, contact_path(contact), :class => "btn btn-lg btn-warning contact_button" %>
+                    <hr>
+                </div>
+        <% end %> 
+        </div>
+    </div>
+</div>
