@@ -13,6 +13,8 @@ class ContactsController < ApplicationController
     end
     
     def show
+        @comment = Comment.new
+        # @contact_id = Contact.find(params[:id])
         if @contact.patch_test
             patch_test_test
         end
@@ -77,6 +79,8 @@ class ContactsController < ApplicationController
             @set_timer = "(#{hh} hours ago)"
         elsif mm > 0
             @set_timer = "(#{mm} minutes ago)"
+        elsif
+            @set_timer = "(#{ss} seconds ago)"    
         else
             @set_timer = ''
         end

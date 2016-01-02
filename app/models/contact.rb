@@ -1,7 +1,7 @@
 class Contact < ActiveRecord::Base
 
  belongs_to :user    
- has_many :comment
+ has_many :comments
  validates :name, presence: true
  validates :name, uniqueness: true
  

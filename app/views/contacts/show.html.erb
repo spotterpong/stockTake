@@ -1,5 +1,6 @@
 <div class = 'center'><h1><%= @contact.name %></h1></div>
-
+<hr>
+<%= render 'stocks/errors', obj: @comment %>
 <div>
     <div class='panel panel-default'>
         <div class='panel-heading'>
@@ -22,6 +23,29 @@
                             <span style='color: red'>Not preformed</span>
                         <% end %>
             </div>
+        </div>
+        <div class='row'>
+            <div class='col-xs-3'>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">New comment</button>
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+              <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class='modal-header'>
+                            Create New comment
+                        </div>
+                        <div class='modal-body'>
+                            <div class='container'>
+                                <%= render 'commentform' %>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+              </div>
+            </div>
+        </div>
+        </div>
         </div>
         <div class='panel-body'>
             <div class='comments-list'>
