@@ -62,7 +62,7 @@ class StocksController < ApplicationController
    
    def set_stock
        @stock = Stock.find(params[:id])
-    end
+   end
    
    def require_same_user
      return if logged_in? && (current_user?(@stock.user) || current_user.admin?)

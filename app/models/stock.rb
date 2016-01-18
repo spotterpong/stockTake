@@ -1,4 +1,5 @@
 class Stock < ActiveRecord::Base
+    default_scope { order('created_at ASC') }
     belongs_to :user
     validates :barcode, :name, :description, presence: true 
     validates :barcode, uniqueness: true

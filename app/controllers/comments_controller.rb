@@ -11,6 +11,15 @@ class CommentsController < ApplicationController
         end
     end
     
+    def update
+    
+    end
+    
+    def destroy
+        # contact_id = params[:contact_id]
+        # flash[:danger] = 'Contact successfully removed'
+        # redirect_to contacts_path
+    end
     private
     def comment_params
         params.require(:comment).permit(:comment_body)

@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
     
     def show
         @comment = Comment.new
-        # @contact_id = Contact.find(params[:id])
+        @comments = @contact.comments
         if @contact.patch_test
             patch_test_test
         end

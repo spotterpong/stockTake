@@ -1,0 +1,17 @@
+<% @comments.order('updated_at DESC').each do |f| %>
+    <div class='comment-single' %>
+        <div class='row'>
+            <div class='col-md-2'>
+                <%= f.updated_at.to_formatted_s(:db) %>
+            </div>
+        </div>
+        <br>
+        <div class='row'>
+            <div class='col-md-12'>
+                <%= f.comment_body %>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+<% end %>
