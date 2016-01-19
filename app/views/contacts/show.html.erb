@@ -5,10 +5,10 @@
     <div class='panel panel-default'>
         <div class='panel-heading'>
             <div class='row'>
-                <div class='col-xs-4'>
+                <div class='col-xs-3'>
                     <span class='glyphicon glyphicon-earphone'>&nbsp;<%= @contact.mobile_phone %></span>
                 </div>
-                <div class='col-xs-4'>
+                <div class='col-xs-3'>
                     <span class='glyphicon glyphicon-phone-alt'>&nbsp;<%= @contact.home_phone %></span>
                 </div>
                 <div class='col-xs-4'>
@@ -23,11 +23,39 @@
                             <span style='color: red'>Not preformed</span>
                         <% end %>
             </div>
+            <div class='col-xs-1'>
+                <%= link_to contact_path(@contact), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn-contact-delete' do %>
+                  <span class='glyphicon glyphicon-remove btn btn-default'></span>
+                <% end %>
+            </div>
+            <div class='col-xs-1'>
+                <div class='edit_contact'>
+                    
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit-contact"><span class='glyphicon glyphicon-pencil'></span></button>
+                        <div class="modal fade" id='edit-contact' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                          <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class='modal-header'>
+                                        Edit Contact
+                                    </div>
+                                    <div class='modal-body'>
+                                        <div class='container'>
+                                            <%= render 'form_edit', obj: @contact %>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class='row'>
             <div class='col-xs-3'>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">New comment</button>
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-comment">New comment</button>
+            <div class="modal fade" id='new-comment' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
               <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class='modal-header'>

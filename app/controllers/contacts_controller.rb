@@ -37,6 +37,18 @@ class ContactsController < ApplicationController
         end
     end
     
+    def edit
+        
+    end
+    
+    def update
+       if @contact.update(contact_params)
+           flash[:success] = 'Contact successfully updated'
+           redirect_to contact_path(@contact.id)
+       else
+           render 'show', id: @contact.id
+       end
+    end
     
     def destroy
         @contact.destroy
