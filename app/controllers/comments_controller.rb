@@ -16,9 +16,10 @@ class CommentsController < ApplicationController
     end
     
     def destroy
-        # contact_id = params[:contact_id]
-        # flash[:danger] = 'Contact successfully removed'
-        # redirect_to contacts_path
+        @comment = Comment.find(params[:id])
+        @comment.destroy
+        flash[:danger] = 'Comment successfully removed'
+        redirect_to contact_path(@comment.contact_id)
     end
     private
     def comment_params

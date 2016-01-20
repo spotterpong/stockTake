@@ -4,6 +4,11 @@
             <div class='col-md-2'>
                 <%= f.updated_at.to_formatted_s(:db) %>
             </div>
+            <div class='col-xs-1'>
+                <%= link_to comment_path(f), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn-contact-delete' do %>
+                  <span class='glyphicon glyphicon-remove btn btn-default'></span>
+                <% end %>
+            </div>
         </div>
         <br>
         <div class='row'>

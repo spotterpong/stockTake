@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'sessions#destroy'
     
     post 'comments', to:'comments#create'
+    resources :comments, except: [:create, :edit, :new, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
