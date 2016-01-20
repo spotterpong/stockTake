@@ -1,6 +1,6 @@
 <div class = 'center'><h1><%= @contact.name %></h1></div>
 <hr>
-<%= render 'stocks/errors', obj: @comment %>
+<%= render 'stocks/errors', obj: @contact %>
 <div>
     <div class='panel panel-default'>
         <div class='panel-heading'>
@@ -77,7 +77,7 @@
         </div>
         <div class='panel-body'>
             <div class='comments-list'>
-            <%= render 'comments' %>
+                <%= render 'comments' %>
             </div>
         </div>
     </div>

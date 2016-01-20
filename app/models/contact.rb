@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-
+default_scope {order('lower(name)')}
  belongs_to :user    
  has_many :comments
  validates :name, presence: true

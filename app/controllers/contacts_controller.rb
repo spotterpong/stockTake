@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
         if params[:search]
             @contacts = current_user.contacts.search(params[:search]).paginate(page: params[:page], per_page: 20)
         else
-            @contacts = current_user.contacts.paginate(page: params[:page], per_page: 20)
+            @contacts = current_user.contacts.order(name: :asc).paginate(page: params[:page], per_page: 20)
         end
     end
     
@@ -42,11 +42,17 @@ class ContactsController < ApplicationController
     end
     
     def update
+        contact_id = @contact.id
        if @contact.update(contact_params)
            flash[:success] = 'Contact successfully updated'
            redirect_to contact_path(@contact.id)
        else
-           render 'show', id: @contact.id
+        @comment = Comment.new
+        @comments = @contact.comments
+            if @contact.patch_test
+                patch_test_test
+            end
+           render 'show', locals: { id: @contact.id, obj: @contact }
        end
     end
     

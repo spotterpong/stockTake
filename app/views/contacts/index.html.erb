@@ -43,10 +43,9 @@
     
 
 <hr>
-
     <div class='well'>
         <div class='row'>
-        <% @contacts.each_with_index do |contact, index| %>
+        <% @contacts.each do |contact| %>
                 <div class='col-xs-12 center'>
                         <%= link_to contact.name, contact_path(contact), :class => "btn btn-lg btn-warning contact_button" %>
                     <hr>
