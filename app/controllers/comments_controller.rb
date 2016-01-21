@@ -12,7 +12,21 @@ class CommentsController < ApplicationController
     end
     
     def update
-    
+        @comment = Comment.find(params[:id])
+        
+        if @comment.update(comment_params)
+           flash[:success] = 'Comment successfully updated'
+           redirect_to contact_path(@comment.contact)
+        else
+            @contact = @comment.contact
+            @comments = @contact.comments
+            if @contact.patch_test
+                patch_test_test
+            end
+            
+            render 'contacts/show', locals: {id: @contact, obj: @comment }
+        end
+            
     end
     
     def destroy

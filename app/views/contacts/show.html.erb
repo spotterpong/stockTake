@@ -40,7 +40,7 @@
                                     </div>
                                     <div class='modal-body'>
                                         <div class='container'>
-                                            <%= render 'form_edit', obj: @contact %>
+                                            <%= render 'contacts/form_edit', obj: @contact %>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -63,7 +63,7 @@
                         </div>
                         <div class='modal-body'>
                             <div class='container'>
-                                <%= render 'commentform' %>
+                                <%= render 'contacts/commentform', obj: @comment %>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -77,7 +77,7 @@
         </div>
         <div class='panel-body'>
             <div class='comments-list'>
-                <%= render 'comments' %>
+                <%= render 'contacts/comments' %>
             </div>
         </div>
     </div>

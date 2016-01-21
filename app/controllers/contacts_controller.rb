@@ -47,6 +47,7 @@ class ContactsController < ApplicationController
            flash[:success] = 'Contact successfully updated'
            redirect_to contact_path(@contact.id)
        else
+        @contact.name = Contact.find(params[:id]).name
         @comment = Comment.new
         @comments = @contact.comments
             if @contact.patch_test
@@ -74,7 +75,7 @@ class ContactsController < ApplicationController
     
     def require_same_user
      return if logged_in? && (current_user?(@contact.user) || current_user.admin?)
-         flash[:danger] = "You can only edit or delete your own stocks"
+         flash[:danger] = "You can only view, edit or delete your own Contacts"
          redirect_to root_path
     end
    
