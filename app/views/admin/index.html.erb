@@ -1,0 +1,50 @@
+<h1>Users administration</h1>
+<% if @user %>
+<%= render 'stocks/errors', obj: user %>
+<% end %>
+<div class='row'>
+        <div class='col-md-12'>
+            <div class= "panel panel-default">
+                 <div class="panel-body">
+                    <table class="table center">
+                        <thead>
+                            <tr>
+                                <th class="col-md-2 center">User ID</th>
+                                <th class="col-md-3 center">Username</th>
+                                <th class="col-md-4 center">Email</th>
+                                <th class="col-md-1 center">Created</th>
+                                <th class="col-md-1 center">Admin?</th>
+                                <th class='center col-md-1'>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @Users.each do |u| %>
+                            <div id='Users-lookup-results' %>
+                                <tr>
+                                    <td>
+                                        <%= u.id %>
+                                    </td>
+                                    <td>
+                                        <%= u.username %>
+                                    </td>
+                                    <td>
+                                        <%= u.email %>
+                                    </td>
+                                    <td>
+                                        <%= u.created_at.to_formatted_s(:db) %>
+                                    </td>
+                                    <td>
+                                        <%= u.admin %>
+                                    </td>
+                                    <td>
+                                        <%= link_to 'Delete', user_path(u), method: :delete, data: {confirm: 'Are you sure?'} %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                            </div>
+                        </tbody>
+                    </table>
+                </div>
+           </div>
+        </div>
+</div>

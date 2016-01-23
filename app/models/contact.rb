@@ -1,7 +1,7 @@
 class Contact < ActiveRecord::Base
 default_scope {order('lower(name)')}
  belongs_to :user    
- has_many :comments
+ has_many :comments, dependent: :destroy
  validates :name, presence: true
  validates :name, uniqueness: true
  

@@ -28,9 +28,9 @@ class UsersController < ApplicationController
    end
    
    def destroy
-       @user.destory
-       flast[:danger] = "User and all data created successfully removed"
-       redirect_to users_path
+       @user.destroy
+       flash[:danger] = "User and all data created successfully removed"
+       redirect_to admin_users_path, user: @user
    end
     
     private
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
    
    
    def require_admin
-      return if logged_in? && !current_user.admin?
+      return if logged_in? && current_user.admin?
           flash[:danger] = "Only admin users can preform that task"
           redirect_to root_path
       end

@@ -1,6 +1,11 @@
 
 var checkbox_fn = function() {
     $('#patch-test-time').hide();
+    if(document.getElementById('contact_patch_test')) {
+    if(document.getElementById('contact_patch_test').checked) {
+        $('#patch-test-time').show();
+    };
+    };
     $('#contact_patch_test').change(function() {
         if(this.checked)
             $('#patch-test-time').show();
@@ -20,4 +25,3 @@ var checkbox_fn = function() {
 
 };
 $(document).ready(checkbox_fn);
-$(document).on('page:load', checkbox_fn);

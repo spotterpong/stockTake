@@ -52,7 +52,7 @@
             <ul class="dropdown-menu">
               <li> <%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
               <% if current_user.admin? %>
-              <li> Admin tab placeholder </li>
+              <li> <%= link_to 'Administration', admin_users_path %> </li>
               <% end %>
               <li> <%= link_to 'Logout', logout_path, method: :delete %>
           </li>

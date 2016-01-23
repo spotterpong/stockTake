@@ -1,13 +1,14 @@
 <div class='containner'>
     <div class='row'>
         <div class='col-xs-12'>
+ 
             <%= form_for(@stock, :html => {class: "form-horizontal", role: "form"}) do |f| %>
                 <div class='form-group'>
                     <div class="control-label col-sm-2">
                     <%= f.label :barcode %></br>
                     </div>
                     <div class='col-sm-4'>
-                    <%= f.text_field :barcode, class: "form-control", placeholder: "Enter Barcode" %>
+                    <%= f.text_field :barcode, class: "form-control", placeholder: "Enter Barcode", autofocus: true, id: 'stock_barcode' %>
                     </div>
                 </div>
                 <div class='form-group'>
