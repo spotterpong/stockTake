@@ -55,6 +55,11 @@ class StocksController < ApplicationController
       redirect_to stocks_path
    end
    
+   def import
+      Stock.import(params[:file])
+      redirect_to stocks_path
+   end
+   
    private
    def stock_params
       params.require(:stock).permit(:barcode, :name, :description, :quantity, :price)

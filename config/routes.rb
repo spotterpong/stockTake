@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-    resources :stocks
+    resources :stocks do
+       collection { post :import } 
+    end
     resources :contacts
     root 'homepages#index'
     

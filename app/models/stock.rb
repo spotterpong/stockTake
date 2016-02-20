@@ -11,7 +11,11 @@ class Stock < ActiveRecord::Base
             where("name LIKE :search OR description LIKE :search",search: "%#{search}%") 
             #where("description LIKE ?", "%#{search}%")
          end
-         
     end
     
+    def self.import(file)
+        CSV.foreach(file.path, headers: true) do |row|
+           Stock.create row.to_hash
+        end
+    end
 end

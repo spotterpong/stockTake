@@ -28,7 +28,7 @@
     </div>
             
     <hr>
-    
+    <!--Stocks table begin-->
     <div class='row'>
         <div class='col-md-12'>
             <div class= "panel panel-default">
@@ -80,7 +80,37 @@
            </div>
         </div>
     </div>
-
+    <!--Stocks table end-->
+    
+    <hr>
+    <!--Import csv file button-->
+    <div class='row'>
+        <div class='col-xs-2 col-xs-offset-10'>
+            <button type='button'class='btn btn-primary' data-toggle='modal' data-target='.file_upload'>Upload</button>
+            <div class="modal fade file_upload" tabindex="-1" role="dialog" aria-labelledby="FILEUPLOAD">
+                  <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class='modal-header'>
+                                Upload Stocks From File
+                            </div>
+                            <div class='modal-body'>
+                                <div class='container'>
+                                    <%= form_tag import_stocks_path, multipart: true do %>
+                                      <%= file_field_tag :file %>
+                                      <%= submit_tag "Import" %>
+                                    <% end %>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <!--File upload end-->
+    
 </div>
 
 
