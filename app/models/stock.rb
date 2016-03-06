@@ -13,9 +13,11 @@ class Stock < ActiveRecord::Base
          end
     end
     
-    def self.import(file)
+    def self.import(file, user)
         CSV.foreach(file.path, headers: true) do |row|
-           Stock.create row.to_hash
+           new_stock = Stock.create row.to_hash
+           new_stock.user = user
+           new_stock.save!
         end
     end
 end

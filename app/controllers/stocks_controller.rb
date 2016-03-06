@@ -56,7 +56,7 @@ class StocksController < ApplicationController
    end
    
    def import
-      Stock.import(params[:file])
+      Stock.import(params[:file], current_user)
       redirect_to stocks_path
    end
    
