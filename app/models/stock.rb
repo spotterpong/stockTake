@@ -14,10 +14,14 @@ class Stock < ActiveRecord::Base
     end
     
     def self.import(file, user)
+        count = 0
         CSV.foreach(file.path, headers: true) do |row|
            new_stock = Stock.create row.to_hash
            new_stock.user = user
-           new_stock.save!
+           if !new_stock.save
+               count +=1
+           end
         end
+        return true, count
     end
 end

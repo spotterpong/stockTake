@@ -91,7 +91,7 @@ class ContactsController < ApplicationController
         if year > 0
             @set_timer = "(#{year} years ago)"
         elsif mon > 0
-            @set_tier = "(#{mon} months ago)"
+            @set_timer = "(#{mon} months ago)"
         elsif dd > 0
             @set_timer = "(#{dd} days ago)"
         elsif hh > 0

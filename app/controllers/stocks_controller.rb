@@ -56,8 +56,14 @@ class StocksController < ApplicationController
    end
    
    def import
-      Stock.import(params[:file], current_user)
-      redirect_to stocks_path
+      status, count = Stock.import(params[:file], current_user)
+      if status && count == 0
+         flash[:success] = 'File successfully updated'
+         redirect_to stocks_path
+      else
+         flash[:danger] = "File did not upload \n A total of #{count} rows unsuccessfully uploaded"
+         redirect_to stocks_path
+      end
    end
    
    private
